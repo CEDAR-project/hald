@@ -2,7 +2,6 @@
 
 require_once("sparqllib.php");
 require_once("encoder.php");
-require_once("simple.php");
 
 print "Form sends input: $_POST[query]<br>";
 
