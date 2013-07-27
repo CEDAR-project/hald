@@ -20,7 +20,11 @@ class RewritingRules {
   }
       
   public function getValue($param) {
-    return $this->value_dict[$param];
+    $values = array();
+    foreach ($param as $p) {
+      array_push($values, $this->value_dict[$p]);
+    }
+    return $values;
   }
 
 }

@@ -3,30 +3,47 @@
 class Decoder {
   public $query;
   public $output_params = array();
-  private $dict = array(
-			"men" => "men",
-			"women" => "women",
-			"persons" => array("men", "women"),
-			"people" => array("men", "women")
-			);
+  public $target;
+  private $params_dict = array(
+			       "men" => "men",
+			       "women" => "women",
+			       "persons" => array("men", "women"),
+			       "people" => array("men", "women")
+			       );
+  private $target_dict = array(
+			       "how many" => "population",
+			       "how much" => "population"
+			       );
 
   function __construct($__query) {
     $this->query = $__query;
-    $this->decode();
+    $this->decodeParams();
+    $this->decodeTarget();
   }
 
-  private function decode() {
+  private function decodeParams() {
     $words = explode(" ", $this->query);
     foreach ($words as $word) {
-      if (array_key_exists($word, $this->dict)) {
-	if (is_array($this->dict[$word])) {
-	  foreach ($this->dict[$word] as $value) {
+      if (array_key_exists($word, $this->params_dict)) {
+	if (is_array($this->params_dict[$word])) {
+	  foreach ($this->params_dict[$word] as $value) {
 	    array_push($this->output_params, $value);
 	  }
 	} else {
-	  array_push($this->output_params, $this->dict[$word]);
+	  array_push($this->output_params, $this->params_dict[$word]);
 	}
       }
+    }
+  }
+
+  private function decodeTarget() {
+    $words = explode(" ", $this->query);
+    $lastword = "";
+    foreach ($words as $word) {
+      if (array_key_exists($lastword . " " . $word, $this->target_dict)) {
+	$this->target = $this->target_dict[$lastword . " " . $word];
+      }
+      $lastword = $word;
     }
   }
       
