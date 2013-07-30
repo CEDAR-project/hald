@@ -3,7 +3,6 @@
 require_once("dataAccess.php");
 require_once("decoder.php");
 require_once("rewritingRules.php");
-require_once("aggregator.php");
 
 print "Form sends input: $_POST[query]<br>";
 
