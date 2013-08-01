@@ -20,6 +20,10 @@ $rules = RewritingRules::instance();
 $dataaccess = new DataAccess();
 $dataaccess->executeQuery($rules->getValue($decoder->output_params), $decoder->target);
 
+print "Rewriter returns params: ";
+var_dump($rules->getValue($decoder->output_params));
+print "<br>";
+
 $fields = $dataaccess->getResultFields();
 
 print "<p>Number of rows: ".$dataaccess->getResultNumRows()." results.</p>";
@@ -28,6 +32,7 @@ print "<tr>";
 foreach( $fields as $field )
 {
 	print "<th>$field</th>";
+
 }
 print "</tr>";
 while( $row = $dataaccess->getResultArray() )

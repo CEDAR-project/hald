@@ -8,7 +8,15 @@ class Decoder {
 			       "men" => "men",
 			       "women" => "women",
 			       "persons" => array("men", "women"),
-			       "people" => array("men", "women")
+			       "people" => array("men", "women"),
+			       "married" => "married",
+			       "single" => "unmarried",
+			       "unmarried" => "unmarried",
+			       "not married" => "unmarried",
+			       "years old" => "age",
+			       "year old" => "age",
+			       "old" => "age",
+			       "age" => "age"
 			       );
   private $target_dict = array(
 			       "how many" => "population",
@@ -47,6 +55,7 @@ class Decoder {
     }
   }
       
+
 }
 
 ?>
