@@ -20,7 +20,8 @@ class Decoder {
 			       );
   private $target_dict = array(
 			       "how many" => "population",
-			       "how much" => "population"
+			       "how much" => "population",
+			       "the number" => "population"
 			       );
 
   function __construct($__query) {
