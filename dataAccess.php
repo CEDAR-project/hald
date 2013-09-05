@@ -4,7 +4,7 @@ require_once("sparqllib.php");
 
 class DataAccess {
   private $db;
-  private $endpoint = "http://lod.cedar-project.nl:8897/sparql/";
+  private $endpoint = "http://lod.cedar-project.nl:8080/sparql/cedar";
   private $result;
   
   function __construct() {
