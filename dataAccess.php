@@ -4,7 +4,7 @@ require_once("sparqllib.php");
 
 class DataAccess {
   private $db;
-  private $endpoint = "http://lod.cedar-project.nl:8897/sparql/";
+  private $endpoint = "http://lod.cedar-project.nl:8080/sparql/cedar";
   private $result;
   
   function __construct() {
@@ -102,7 +102,7 @@ WHERE {
  FILTER (?gender IN (cd:$params[0]))
  FILTER (?marital_status IN (cd:O, cd:G))
  FILTER (?age IN (cd:12___1878, cd:13___1876, cd:14_---_15__1875___---_1874, cd:16_---_17__1873___---_1872, cd:1878_en_later__beneden_12_j_, cd:18_---_22__1871___---_1867, cd:Geboortejaren___leeftijd_in_j_, cd:25_---_35__1864___---_1854, cd:36_---_50__1853___---_1839, cd:51_---_60__1838___---_1829, cd:61_---_65__1828___---_1824, cd:66_---_70__1823_---_1818, cd:71_en_daarboven__1818_en_vroeger, cd:Van_onbekenden_leeftijd, cd:23_---_24__1866___---_1865))
-} ORDER BY (?cell) LIMIT 100";
+} ORDER BY (?cell)";
     }
     $this->result = sparql_query( $sparql ); 
     if (!$this->result) { 
